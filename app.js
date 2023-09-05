@@ -10,6 +10,8 @@ const reglasRoutes = require("./routes/reglas");
 
 const jugarRoutes = require("./routes/jugar");
 
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use(menuRoutes);
 
 app.use(reglasRoutes);
