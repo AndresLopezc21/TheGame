@@ -1,8 +1,23 @@
+@font-face {
+  font-family: 'cristone';
+  /* Puedes darle un nombre a tu fuente */
+  src: url('../fonts/cristone.ttf') format('truetype');
+  /* Cambia la ruta y el formato según tu archivo de fuente */
+}
+
+@font-face {
+  font-family: 'cutpoint';
+  /* Puedes darle un nombre a tu fuente */
+  src: url('../fonts/cutpoint\ 3.1.ttf') format('truetype');
+  /* Cambia la ruta y el formato según tu archivo de fuente */
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 
 @media screen and (max-width: 760px) {
   .l-container {
@@ -18,24 +33,62 @@
   perspective: 1000px;
 }
 
+.cardnumber {
+  z-index: 100;
+  position: absolute;
+  color: rgb(255, 0, 0);
+  font-size: 100px;
+  font-family: 'cristone', Arial, sans-serif;
+  left: 43%;
+  top: 25%;
+  text-shadow: 1px 1px 3px black;
+}
+
 .numberup {
   z-index: 100;
   position: absolute;
-  color: rgb(255, 174, 0);
+  color: rgb(255, 0, 0);
   font-size: 100px;
-  font-style: unset;
-  left: 40%;
+  font-family: 'cristone', Arial, sans-serif;
+  left: 43%;
   top: 25%;
+  text-shadow: 1px 1px 3px black;
+}
+
+.arrowup {
+  z-index: 100;
+  position: absolute;
+  color: rgb(255, 0, 0);
+  font-size: 50px;
+  font-family: 'cutpoint', Arial, sans-serif;
+  left: 45%;
+  top: 5%;
+  transform: scaleY(-1);
+  text-shadow: 1px 1px 3px black;
+  font-weight: 1000;
+}
+
+.arrowdown {
+  z-index: 100;
+  position: absolute;
+  color: rgb(255, 0, 0);
+  font-size: 50px;
+  font-family: 'cutpoint', Arial, sans-serif;
+  left: 45%;
+  top: 70%;
+  text-shadow: 1px 1px 3px black;
+  font-weight: 1000;
 }
 
 .numberdown {
   z-index: 100;
   position: absolute;
-  color: rgb(166, 255, 0);
+  color: rgb(255, 0, 0);
   font-size: 100px;
-  font-style: unset;
-  left: 16%;
+  font-family: 'cristone', Arial, sans-serif;
+  left: 23%;
   top: 25%;
+  text-shadow: 1px 1px 3px black;
 }
 
 .b-game-card__cover {
