@@ -9,15 +9,7 @@ console.log(deck);
 let playerHand = [];
 
 function llenarManoInicial() {
-  let deck = [];
 
-  for (let index = 2; index < 99; index++) {
-    deck.push(index);
-  }
-
-  console.log(deck);
-
-  let playerHand = [];
   while (playerHand.length < 8 && deck.length > 0) {
     var indiceAleatorio = Math.floor(Math.random() * deck.length);
     var carta = deck.splice(indiceAleatorio, 1)[0];
