@@ -10,4 +10,8 @@ router.get("/jugar", (req, res, next) => {
   res.sendFile(path.join(rootDir, "views", "jugar.html"));
 });
 
+router.get('/js', function(req, res) {
+  res.sendFile(path.join(rootDir , "util", "gameLogic.js"));
+});
+
 module.exports = router;
