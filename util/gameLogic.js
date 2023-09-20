@@ -27,6 +27,8 @@ function llenarManoInicial() {
   let carta7 = document.getElementById("hand7");
   let carta8 = document.getElementById("hand8");
 
+  playerHand.sort();
+
   carta1.innerHTML = playerHand[0];
   carta2.innerHTML = playerHand[1];
   carta3.innerHTML = playerHand[2];
@@ -35,6 +37,7 @@ function llenarManoInicial() {
   carta6.innerHTML = playerHand[5];
   carta7.innerHTML = playerHand[6];
   carta8.innerHTML = playerHand[7];
+  
 }
 
 function tomarCartaAleatoria() {
