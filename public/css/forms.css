@@ -31,6 +31,17 @@
   width: 75%;
   padding-bottom: 110%;
   perspective: 1000px;
+  
+}
+.pilenumber{
+  z-index: 100;
+  position: absolute;
+  color: rgb(51, 255, 0);
+  font-size: 100px;
+  font-family: 'cristone', Arial, sans-serif;
+  left: 43%;
+  top: 25%;
+  text-shadow: 1px 1px 3px black;
 }
 
 .cardnumber {
