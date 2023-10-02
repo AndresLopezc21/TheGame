@@ -69,47 +69,79 @@ function pushAPila(pila, cartaHand) {
     case 1:
         console.log(cartaHand);
         console.log(pila);
-        let cartaAnterior = pilaArribaUno[0];
-        pilaArribaUno.unshift(cartaHand);
-        if(cartaAnterior > cartaHand){
-             console.log("ese we");
-             console.log("carta en el tope de la pila  a cambiar"+ pilaArribaUno[0]);
-             console.log("carta que salio de la mano a la pila: " + cartaHand);
-             pilaArribaUno.unshift(cartaAnterior);
-             break;
+        cartaAnterior = pilaArribaUno[0];
+        cartaMano = Number(cartaHand);
+        pilaArribaUno.unshift(cartaMano);
+        if(cartaAnterior > cartaMano){
+          console.log('Ese we');
+          pilaArribaUno.unshift(cartaAnterior);
+          break;
         }
-          let pilaArriba1 = document.getElementById("pilaArribaUno");
-          pilaArriba1.innerHTML = pilaArribaUno[0];
-          let i = playerHand.findIndex((item) => item.id === cartaHand.id);
-          console.log("index: " + i);
-          console.log("carta en el tope de la pila  a cambiar"+ pilaArribaUno[0]);
-          console.log("carta que salio de la mano a la pila: " + cartaHand);
-          if (i !== -1) {
-            playerHand.splice(i, 1);
-          }
-          console.log("mano del jugardor: " + playerHand);
+        let pilaArriba1 = document.getElementById("pilaArribaUno");
+        pilaArriba1.innerHTML = pilaArribaUno[0];
+        let i = playerHand.findIndex((item) => item.id === cartaMano.id);
+        if (i !== -1) {
+          playerHand.splice(i, 1);
+        }
       break;
 
     case 2:
-      console.log(cartaHand);
+        console.log(cartaHand);
         console.log(pila);
-      pilaArribaDos.unshift(cartaHand);
-      let pilaArriba2 = document.getElementById("pilaArribaDos");
-      pilaArriba2.innerHTML = pilaArribaDos[0];
-      let j = playerHand.findIndex((item) => item.id === cartaHand.id);
-      console.log(j);
-      console.log(cartaHand);
-      if (j !== -1) {
-        playerHand.splice(j, 1);
-      }
+        cartaAnterior = pilaArribaDos[0];
+        cartaMano = Number(cartaHand);
+        pilaArribaDos.unshift(cartaMano);
+        if(cartaAnterior > cartaMano){
+          console.log('Ese we');
+          pilaArribaDos.unshift(cartaAnterior);
+          break;
+        }
+        let pilaArriba2 = document.getElementById("pilaArribaDos");
+        pilaArriba2.innerHTML = pilaArribaDos[0];
+        let j = playerHand.findIndex((item) => item.id === cartaMano.id);
+        if (j !== -1) {
+          playerHand.splice(j, 1);
+        }
       console.log(playerHand);
       break;
 
     case 3:
-      pilaArribaUno;
+      console.log(cartaHand);
+        console.log(pila);
+        cartaAnterior = pilaAbajoUno[0];
+        cartaMano = Number(cartaHand);
+        pilaAbajoUno.unshift(cartaMano);
+        if(cartaAnterior < cartaMano){
+          console.log('Ese we');
+          pilaAbajoUno.unshift(cartaAnterior);
+          break;
+        }
+        let pilaAbajo1 = document.getElementById("pilaAbajoUno");
+        pilaAbajo1.innerHTML = pilaAbajoUno[0];
+        let k = playerHand.findIndex((item) => item.id === cartaMano.id);
+        if (k !== -1) {
+          playerHand.splice(k, 1);
+        }
+      console.log(playerHand);
       break;
     case 4:
-      pilaArribaDos;
+      console.log(cartaHand);
+      console.log(pila);
+      cartaAnterior = pilaAbajoDos[0];
+      cartaMano = Number(cartaHand);
+      pilaAbajoDos.unshift(cartaMano);
+      if(cartaAnterior < cartaMano){
+        console.log('Ese we');
+        pilaAbajoDos.unshift(cartaAnterior);
+        break;
+      }
+      let pilaAbajo2 = document.getElementById("pilaAbajoDos");
+      pilaAbajo2.innerHTML = pilaAbajoDos[0];
+      let l = playerHand.findIndex((item) => item.id === cartaMano.id);
+      if (l !== -1) {
+        playerHand.splice(l, 1);
+      }
+    console.log(playerHand);
       break;
   }
 }
