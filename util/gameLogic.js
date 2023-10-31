@@ -57,16 +57,12 @@ function llenarManoInicial() {
   botonComenzarBack.style.display = "none";
 }
 
-function tomarCartaAleatoria() {
-  if (deck.length > 0) {
-    let indice = deck[0];
-    let carta = deck.splice(indice, 1)[0];
-    playerHand.push(carta);
-    console.log("Has tomado la carta: " + carta);
-    console.log("Tu mano actual: " + playerHand);
-  } else {
-    console.log("El deck está vacío, no puedes tomar más cartas.");
-  }
+function tomarCarta() {
+      let indice = deck[0];
+      let carta = deck.splice(indice, 1)[0];
+      playerHand.push(carta);
+      console.log("Has tomado la carta: " + carta);
+      console.log("Tu mano actual: " + playerHand);
 }
 
 function pushAPila(pila, cartaHand) {
@@ -148,4 +144,8 @@ function pushAPila(pila, cartaHand) {
       pilaAbajoDos.unshift(cartaAnterior);
       break;
   }
+}
+
+function pasarTurno(){
+
 }
