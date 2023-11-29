@@ -1,15 +1,11 @@
 @font-face {
   font-family: 'cristone';
-  /* Puedes darle un nombre a tu fuente */
   src: url('../fonts/cristone.ttf') format('truetype');
-  /* Cambia la ruta y el formato según tu archivo de fuente */
 }
 
 @font-face {
   font-family: 'cutpoint';
-  /* Puedes darle un nombre a tu fuente */
   src: url('../fonts/cutpoint\ 3.1.ttf') format('truetype');
-  /* Cambia la ruta y el formato según tu archivo de fuente */
 }
 
 * {
@@ -31,9 +27,10 @@
   width: 75%;
   padding-bottom: 110%;
   perspective: 1000px;
-  
+
 }
-.pilenumber{
+
+.pilenumber {
   z-index: 100;
   position: absolute;
   color: rgb(51, 255, 0);
