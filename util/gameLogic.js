@@ -24,15 +24,7 @@ pilaArribaDos[0] = 1;
 pilaAbajoUno[0] = 100;
 pilaAbajoDos[0] = 100;
 
-function llenarManoInicial() {
-  while (playerHand.length < sizeHand && deck.length > 0) {
-    var indice = deck[0];
-    var carta = deck.splice(indice, 1)[0];
-    playerHand.push(carta);
-  }
-  console.log("Mano inicial del jugador: " + playerHand);
-  console.log("deck despues de repartir al jugador: " + deck);
-
+function actualizarMano(playerHand) {
   let carta1 = document.getElementById("hand1");
   let carta2 = document.getElementById("hand2");
   let carta3 = document.getElementById("hand3");
@@ -52,6 +44,18 @@ function llenarManoInicial() {
   carta6.innerHTML = playerHand[5];
   carta7.innerHTML = playerHand[6];
   carta8.innerHTML = playerHand[7];
+}
+
+function llenarManoInicial() {
+  while (playerHand.length < sizeHand && deck.length > 0) {
+    var indice = deck[0];
+    var carta = deck.splice(indice, 1)[0];
+    playerHand.push(carta);
+  }
+  console.log("Mano inicial del jugador: " + playerHand);
+  console.log("deck despues de repartir al jugador: " + deck);
+
+  actualizarMano(playerHand);
 
   let botonComenzarBack = document.getElementById("botonComenzar");
 
@@ -144,17 +148,43 @@ function pushAPila(pila, cartaHand) {
 }
 
 function pasarTurno() {
-  // Verificar que se hayan arrojado al menos dos cartas
   if (cartasArrojadas >= 2) {
-    console.log("Tu mano actual: " + playerHand);
+    while (playerHand.length < sizeHand && deck.length > 0) {
+      var indice = deck[0];
+      var carta = deck.splice(indice, 1)[0];
+      playerHand.push(carta);
+      console.log("Tu mano actual: " + playerHand);
+      actualizarMano(playerHand);
+    }
     cartasArrojadas = 0;
   } else {
-    mostrarMensaje(
+    mostrarMensajeFinTurno(
       "Necesitas arrojar al menos dos cartas antes de pasar el turno"
     );
   }
 }
 
-function mostrarMensaje(mensaje) {
+function pasarTurnoDificil() {
+  if (cartasArrojadas >= 2) {
+    cartasArrojadas = 0;
+    while (playerHand.length < sizeHand && deck.length > 0) {
+      var indice = deck[0];
+      var carta = deck.splice(indice, 1)[0];
+      playerHand.push(carta);
+      console.log("Tu mano actual: " + playerHand);
+      actualizarMano(playerHand);
+    }
+  } else {
+    mostrarMensajeFinTurnoDificil(
+      "Necesitas arrojar al menos tres cartas antes de pasar el turno"
+    );
+  }
+}
+
+function mostrarMensajeFinTurno(mensaje) {
+  alert(mensaje);
+}
+
+function mostrarMensajeFinTurnoDificil(mensaje) {
   alert(mensaje);
 }
