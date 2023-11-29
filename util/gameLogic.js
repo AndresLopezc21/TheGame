@@ -12,11 +12,11 @@ shuffleArray(deck);
 console.log(deck);
 
 const sizeHand = 8;
-let playerHand = [];
-let pilaAbajoUno = [],
-  pilaAbajoDos = [],
-  pilaArribaUno = [],
-  pilaArribaDos = [];
+playerHand = [];
+(pilaAbajoUno = []),
+  (pilaAbajoDos = []),
+  (pilaArribaUno = []),
+  (pilaArribaDos = []);
 
 cartasArrojadas = 0;
 pilaArribaUno[0] = 1;
