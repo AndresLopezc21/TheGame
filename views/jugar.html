@@ -17,11 +17,11 @@
     <link rel="stylesheet" href="/css/forms.css">
 </head>
 
-<body>
+<body style="background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/48e118d3-81d4-494f-9908-5999ec492498/dga1myl-9b954584-6b1a-4555-b4fb-866ada1f8610.png/v1/fit/w_828,h_496,q_70,strp/magma_by_thomazdias32_dga1myl-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTUzNiIsInBhdGgiOiJcL2ZcLzQ4ZTExOGQzLTgxZDQtNDk0Zi05OTA4LTU5OTllYzQ5MjQ5OFwvZGdhMW15bC05Yjk1NDU4NC02YjFhLTQ1NTUtYjRmYi04NjZhZGExZjg2MTAucG5nIiwid2lkdGgiOiI8PTI1NjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.MNSA1peBScdLmYhSvTK-y0G3xM8ET7d6e893F4MuJuc'); background-size: cover; background-position: center;">
     <header class="main-header">
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">THE GAME</a>
+                <a class="navbar-brand" href="/jugar">THE GAME</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -33,9 +33,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/reglas">Reglas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/jugar">Jugar</a>
                         </li>
                     </ul>
                 </div>
@@ -202,6 +199,7 @@
             <button onclick="llenarManoInicial()" id="botonComenzar"> EMPEZAR JUEGO!!!</button>
         </div>
     </main>
+
 </body>
 <script>
     var app = new Vue({
@@ -213,21 +211,23 @@
         },
         methods: {
             selectCarta(position) {
-                this.cartaElegida = this.$refs[position].textContent;
-                this.posicionDeCarta = position;
-            },
+            this.cartaElegida = this.$refs[position].textContent;
+            this.posicionDeCarta = position;
+},
             llenarPila(pila) {
                 if (this.cartaElegida != null && this.posicionDeCarta != null) {
-                    pushAPila(pila, this.cartaElegida)
-                    this.$refs[this.posicionDeCarta].textContent = "";
-                    this.cartaElegida = null;
-                    this.posicionDeCarta = null;
-                }
-                else {
-                    alert("Asegurate de clickear una carta antes de seleccionar la pila a donde enviar esa carta! :D");
+                pushAPila(pila, this.cartaElegida);
+
+                // Encuentra la referencia al elemento correspondiente utilizando Vue.js
+                const cartaRef = this.$refs[this.posicionDeCarta];
+                // Utiliza Vue.js para limpiar el contenido y actualizar el estado
+                this.$nextTick(() => {
+                this.$set(cartaRef, 'textContent', '');
+                });
+                } else {
+                alert("Asegurate de clickear una carta antes de seleccionar la pila a donde enviar esa carta! :D");
                 }
             }
-
         },
     });
 </script>
