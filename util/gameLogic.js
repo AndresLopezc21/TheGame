@@ -124,14 +124,28 @@ function pushAPila(pila, cartaHand) {
 
 function actualizarPilaYMano(pila, elementoId) {
   let pilaElemento = document.getElementById(elementoId);
-  pilaElemento.innerHTML = pila[0];
 
-  let i = playerHand.findIndex((item) => item && item === pila[0]);
-  if (i !== -1) {
-    playerHand.splice(i, 1);
-    console.log(playerHand);
-    cartasArrojadas++;
-    scoreJugador--;
+  // Verificar si el valor en la pila no es undefined
+  if (pila[0] !== undefined) {
+    pilaElemento.innerHTML = pila[0];
+
+    let i = playerHand.findIndex((item) => item === pila[0]);
+    if (i !== -1) {
+      playerHand.splice(i, 1);
+      console.log(playerHand);
+      cartasArrojadas++;
+      scoreJugador--;
+    }
+  } else {
+    pilaElemento.innerHTML = ""; // Establecer el contenido como vacío si es undefined
+  }
+  for (let i = 0; i < sizeHand; i++) {
+    let cartaElemento = document.getElementById("hand" + (i + 1));
+
+    if (playerHand[i] == undefined) {
+      cartaElemento.innerHTML = ""; // Establecer el contenido como vacío
+      cartaElemento.style.display = "none"; // Ocultar el elemento
+    }
   }
 }
 
