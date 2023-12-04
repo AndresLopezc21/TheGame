@@ -8,6 +8,46 @@
   <title>The Game</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      color: #343a40;
+      margin: 0;
+      padding: 0;
+    }
+
+    .main-header {
+      background-color: #fd0d0d;
+    }
+
+    .navbar-brand {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .navbar-toggler-icon {
+      background-color: #fff;
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    h1 {
+      color: #fd0d0d;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 
 <body>
@@ -35,10 +75,15 @@
 
   <main>
     <h1>Reglas del juego The Game</h1>
-    <p>Estas son las instrucciones para jugar el juego</p>
-    <img src="C:\Users\Andrés López\Pictures\tablero.png" alt="Descripción de la imagen">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"></script>
+    <p>Estas son las instrucciones para jugar el juego.</p>
+    <p>Tendrás dos pilas de cartas que apuntarán hacia arriba, empezando con 1 en busca de subir hasta 100, y otras dos pilas que apuntarán hacia abajo, empezando con 100 en busca de bajar hasta 1.</p>
+    <p>El mazo tendrá cartas del 2 al 98. Cuando tires cada carta, sumarás un punto, lo cual marcará tu puntuación. En las filas solo puedes tirar cartas en direcciones antes dadas o si la carta es menor o mayor exactamente 10 números.</p>
+    <p>El juego finaliza cuando te quedas sin cartas o cuando no puedes tirar más de 2 cartas.</p>
+    <img src="/public/images/tablero.png" alt="Descripción de la imagen">
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
 </body>
+
+</html>

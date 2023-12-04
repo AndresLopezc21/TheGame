@@ -1,5 +1,5 @@
 const deck = Array.from({ length: 98 }, (_, index) => index + 2);
-
+const connection = require("./connection.cjs");
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -10,6 +10,7 @@ function shuffleArray(array) {
 shuffleArray(deck);
 console.log(deck);
 
+let iniciales = "";
 const sizeHand = 8;
 playerHand = [];
 (pilaAbajoUno = []),
@@ -45,6 +46,16 @@ function actualizarMano(playerHand) {
 }
 
 function llenarManoInicial() {
+  const inicialesUsuario = prompt("Por favor, ingresa tus iniciales:");
+
+  if (inicialesUsuario !== null && inicialesUsuario.length === 3) {
+    alert("Tus iniciales son: " + inicialesUsuario);
+    iniciales = inicialesUsuario; // Asignas el valor del prompt a la variable iniciales
+  } else {
+    alert(
+      "Iniciales inválidas o no ingresadas. Se utilizará un valor predeterminado."
+    );
+  }
   while (playerHand.length < sizeHand && deck.length > 0) {
     var indice = deck[0];
     var carta = deck.splice(indice, 1)[0];
@@ -75,7 +86,9 @@ function pushAPila(pila, cartaHand) {
         pilaArribaUno.unshift(cartaMano);
         actualizarPilaYMano(pilaArribaUno, "pilaArribaUno");
       } else {
-        console.log("Ese we");
+        alert(
+          "Ese moviento no es posible, asegurate de que este en el orden correcto"
+        );
         pilaArribaUno.unshift(cartaAnterior);
         actualizarPilaYMano();
       }
@@ -89,7 +102,9 @@ function pushAPila(pila, cartaHand) {
         pilaArribaDos.unshift(cartaMano);
         actualizarPilaYMano(pilaArribaDos, "pilaArribaDos");
       } else {
-        console.log("Ese we");
+        alert(
+          "Ese moviento no es posible, asegurate de que este en el orden correcto"
+        );
         pilaArribaDos.unshift(cartaAnterior);
         actualizarPilaYMano();
       }
@@ -103,7 +118,9 @@ function pushAPila(pila, cartaHand) {
         pilaAbajoUno.unshift(cartaMano);
         actualizarPilaYMano(pilaAbajoUno, "pilaAbajoUno");
       } else {
-        console.log("Ese we");
+        alert(
+          "Ese moviento no es posible, asegurate de que este en el orden correcto"
+        );
         pilaAbajoUno.unshift(cartaAnterior);
         actualizarPilaYMano();
       }
@@ -117,7 +134,9 @@ function pushAPila(pila, cartaHand) {
         pilaAbajoDos.unshift(cartaMano);
         actualizarPilaYMano(pilaAbajoDos, "pilaAbajoDos");
       } else {
-        console.log("Ese we");
+        alert(
+          "Ese moviento no es posible, asegurate de que este en el orden correcto"
+        );
         pilaAbajoDos.unshift(cartaAnterior);
         actualizarPilaYMano();
       }
@@ -128,7 +147,6 @@ function pushAPila(pila, cartaHand) {
 function actualizarPilaYMano(pila, elementoId) {
   let pilaElemento = document.getElementById(elementoId);
 
-  // Verificar si el valor en la pila no es undefined
   if (pila[0] !== undefined) {
     pilaElemento.innerHTML = pila[0];
 
@@ -140,7 +158,7 @@ function actualizarPilaYMano(pila, elementoId) {
       scoreJugador--;
     }
   } else {
-    pilaElemento.innerHTML = ""; // Establecer el contenido como vacío si es undefined
+    pilaElemento.innerHTML = "";
   }
 }
 
@@ -198,5 +216,18 @@ function verificarVictoria() {
 
   if ((deck.length === 0 && playerHand.length === 0) || todasCartasUndefined) {
     alert("¡Felicidades, has ganado!");
+    window.location.href = "/jugar";
   }
+}
+
+function finalizarJuego() {
+  alert(
+    "Has terminado el juego " + iniciales + " Tu puntuación es: " + scoreJugador
+  );
+
+  connection.query("SELECT * FROM puntuaciones;", (err, result) => {
+    !err ? console.log(result) : console.log("error");
+  });
+
+  let botonFinalizarBack = document.getElementById("botonFinalizar");
 }

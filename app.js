@@ -4,6 +4,8 @@ const express = require("express");
 
 const app = express();
 
+const connection = require("./connection.cjs");
+
 const menuRoutes = require("./routes/menu");
 
 const reglasRoutes = require("./routes/reglas");

@@ -30,6 +30,15 @@
 
 }
 
+.tablero {
+  position: relative;
+  z-index: 1;
+  width: 75%;
+  padding-bottom: 110%;
+  perspective: 1000px;
+
+}
+
 .pilenumber {
   z-index: 100;
   position: absolute;
