@@ -78,6 +78,7 @@ function pushAPila(pila, cartaHand) {
       } else {
         console.log("Ese we");
         pilaArribaUno.unshift(cartaAnterior);
+        actualizarPilaYMano();
       }
       break;
 
@@ -91,6 +92,7 @@ function pushAPila(pila, cartaHand) {
       } else {
         console.log("Ese we");
         pilaArribaDos.unshift(cartaAnterior);
+        actualizarPilaYMano();
       }
       break;
 
@@ -104,6 +106,7 @@ function pushAPila(pila, cartaHand) {
       } else {
         console.log("Ese we");
         pilaAbajoUno.unshift(cartaAnterior);
+        actualizarPilaYMano();
       }
       break;
 
@@ -117,6 +120,7 @@ function pushAPila(pila, cartaHand) {
       } else {
         console.log("Ese we");
         pilaAbajoDos.unshift(cartaAnterior);
+        actualizarPilaYMano();
       }
       break;
   }
@@ -138,14 +142,6 @@ function actualizarPilaYMano(pila, elementoId) {
     }
   } else {
     pilaElemento.innerHTML = ""; // Establecer el contenido como vacío si es undefined
-  }
-  for (let i = 0; i < sizeHand; i++) {
-    let cartaElemento = document.getElementById("hand" + (i + 1));
-
-    if (playerHand[i] == undefined) {
-      cartaElemento.innerHTML = ""; // Establecer el contenido como vacío
-      cartaElemento.style.display = "none"; // Ocultar el elemento
-    }
   }
 }
 
