@@ -13,5 +13,4 @@ router.get("/jugar", (req, res, next) => {
 router.get("/jugar/begin", function (req, res, next) {
   res.sendFile(path.join(rootDir, "util", "gameLogic.js"));
 });
-
 module.exports = router;
